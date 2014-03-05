@@ -53,6 +53,8 @@ class FacebookResourceOwner extends GenericOAuth2ResourceOwner
             $parameters['fb_appcenter'] = $request->query->get('fb_appcenter');
         }
 
+	$extraParameters['appsecret_proof'] = $this->options['appsecret_proof'];
+
         return parent::getAccessToken($request, $this->normalizeUrl($redirectUri, $parameters), $extraParameters);
     }
 
